@@ -1,5 +1,134 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
 body{
-    margin: 0;
-    width: 1280px;
-    height: 1440px;
+    font-family: 'Monsterrat',sans-serif;
+    overflow-x: hidden;
+}
+
+nav{
+    display: flex;
+    background-color: rgb(93, 89, 89);
+    justify-content: space-around;
+    /* padding: 20px 0; */
+    color:bisque;
+    height: 70px;
+    align-items: center;
+}
+
+nav .logo{
+    font-family: 'Sriracha', cursive;
+    letter-spacing: 3px;
+    font-size: 30px;
+}
+
+nav ul{
+    display: flex;
+    list-style: none;
+    width: 40%;
+    justify-content: space-between;
+}
+
+nav ul li a{
+    color: bisque;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+nav ul li a:hover{
+    color: whitesmoke;
+}
+
+/* hamburger menu */
+.menu-toggle{
+    display: none;
+    flex-direction: column;
+    height: 20px;
+    justify-content: space-between;
+    position: relative;
+}
+
+.menu-toggle input{
+    position: absolute;
+    width: 40px;
+    height: 28px;
+    left: -6px;
+    top: -3px;
+    opacity: 0;
+    z-index: 2;
+}
+
+.menu-toggle span{
+    display: block;
+    width: 28px;
+    height: 3px;
+    background-color: bisque;
+    border-radius: 3px;
+    transition: all 0.5s;
+}
+
+/* Hamburger Menu Animation */
+.menu-toggle span:nth-child(2){
+    transform-origin: 0 0; /* sumbu X, sumbu Y */
+}
+
+.menu-toggle span:nth-child(4){
+    transform-origin: 0 100%; /* sumbu X, sumbu Y */
+}
+
+.menu-toggle input:checked ~ span:nth-child(2){
+    background-color: wheat;
+    transform: rotate(45deg) translate(-1px, 0px);
+}
+
+.menu-toggle input:checked ~ span:nth-child(4){
+    background-color: wheat;
+    transform: rotate(-45deg) translate(-1px, 0px);
+}
+
+.menu-toggle input:checked ~ span:nth-child(3){
+    opacity: 0;
+    transform: scale(0);
+}
+
+
+/* RESPONSIVE BREAKPOINT */
+
+/* tablet size */
+@media screen and (max-width: 768px){
+    nav ul{
+        width: 50%;
+    }
+}
+
+/* mobile size */
+@media screen and (max-width: 576px){
+    nav ul {
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 50vh;
+        width: 50%;
+        align-items: center;
+        justify-content: space-evenly;
+        border: 1px solid black;
+        flex-direction: column;
+        z-index: -1;
+        background-color: wheat;
+        transform: translateX(100%);
+        transition: all 1s;
+        opacity: 0;
+    }
+    nav ul li a{
+        color: rgb(93, 89, 89);
+    }
+    nav ul.slide{
+        transform: translateX(0);
+        opacity: 1;
+    }
+    .menu-toggle{
+        display: flex;
+    }
 }
