@@ -31,15 +31,36 @@ nav ul{
     justify-content: space-between;
 }
 
+nav li{
+    overflow: hidden;
+}
+
 nav ul li a{
     color: bisque;
     text-decoration: none;
     font-size: 15px;
+    transition: all 1s;
 }
 
 nav ul li a:hover{
-    color: whitesmoke;
+    color: white
 }
+
+nav ul li a::after{
+    content: '';
+    display: block;
+    width: 100%;
+    border-bottom: 2px solid white;
+    padding-bottom: 0.3em;
+    transform: translate(-150%);
+    transition: all 0.5s ease-in-out;
+}
+
+nav ul li a:hover::after{
+    color: white;
+    transform: translate(0%);
+}
+
 
 /* hamburger menu */
 .menu-toggle{
@@ -121,13 +142,16 @@ nav ul li a:hover{
         transition: all 1s;
         opacity: 0;
     }
+
     nav ul li a{
         color: rgb(93, 89, 89);
     }
+
     nav ul.slide{
         transform: translateX(0);
         opacity: 1;
     }
+
     .menu-toggle{
         display: flex;
     }
